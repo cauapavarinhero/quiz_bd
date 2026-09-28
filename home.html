@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem é esse Jogador? - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container index-container">
+        <p class="topo-especialistas">Criado e desenvolvido pelos <span class="txt-verde">especialistas</span> em Futebol!</p>
+        
+        <div class="logo-principal">
+            <img src="imagens/bola2-Photoroom.png" alt="Bola de Futebol" width="80" height="80" style="object-fit: contain;">
+            
+            <div class="titulo-home">
+                <h1>QUEM</h1>
+                <h2>É ESSE JOGADOR?</h2>
+            </div>
+        </div>
+
+        <p class="subtitulo-home">Surpreenda os especialistas do futebol, leia as dicas e descubra o jogador!</p>
+
+        <button class="btn-play" onclick="mudarDePagina('pag2.html')">
+            <img src="imagens/bola.png" alt="Icone Play" width="25" height="25" style="object-fit: contain;">
+            APERTA O PLAY NEYMAR!
+        </button>
+
+        <p class="rodape-home">Mostre que você é um <span class="txt-verde">CRAQUE!</span></p>
+        <div class="linha-decorativa"></div>
+
+        <div class="creditos-container">
+            <div class="avatar-box">
+                <img src="imagens/IMG-20260519-WA0035.jpg" alt="Lacerda Beckler" width="45" height="45" style="border-radius: 50%; border: 2px solid #32cd32; object-fit: cover;">
+                <span>LACERDA <span class="txt-verde">BECKLER</span></span>
+            </div>
+            
+            <div class="avatar-box">
+                <span>PAVARIN <span class="txt-verde">FORMIGA</span></span>
+                <img src="imagens/IMG-20260519-WA0034.jpg" alt="Pavarin Formiga" width="45" height="45" style="border-radius: 50%; border: 2px solid #32cd32; object-fit: cover;">
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js">
+        
+    
+    const nomeSalvo = sessionStorage.getItem('nome_jogador') || "Jogador";
+    document.getElementById('nome-boas-vindas').innerText = nomeSalvo;
+
+    </script>
+</body>
+</html>
+
+   

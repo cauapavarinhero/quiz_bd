@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem é esse Jogador? - Resultados</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo-section" style="margin-top: 10px;">
+            <div class="bola-icone"></div>
+            <div class="titulo-container">
+                <h1>FIM DO</h1>
+                <h2>QUIZ DOS EXPERTS</h2>
+            </div>
+        </div>
+
+        <div class="card-pergunta" style="border-color: #32cd32; padding: 20px 15px;">
+            <h3 style="margin-bottom: 15px; font-size: 18px; text-align: center;">
+                DADOS JOGADOR
+            </h3>
+            
+            <div style="text-align: left; font-size: 14px; margin-bottom: 15px; border-bottom: 1px solid #444; padding-bottom: 12px; display: flex; flex-direction: column; gap: 5px;">
+                <div> <strong>NOME:</strong> <span class="txt-verde" id="res-nome">---</span></div>
+                <div> <strong>IDADE:</strong> <span class="txt-verde" id="res-idade">---</span> anos</div>
+                <div> <strong>TIME:</strong> <span class="txt-verde" id="res-time">---</span></div>
+            </div>
+
+            <div style="display: flex; justify-content: space-around; margin-bottom: 15px; font-weight: bold; font-size: 15px;">
+                <div>ACERTOS: <span style="color: #32cd32;" id="res-acertos">0</span>/20</div>
+                <div>APROVEITAMENTO: <span style="color: #32cd32;" id="res-porcentagem">0%</span></div>
+            </div>
+            <div id="status-comentario" style="font-size: 13px; font-weight: bold; color: #aaa; text-align: center;"></div>
+        </div>
+
+        <div class="card-pergunta" style="text-align: left;">
+            <p class="txt-verde" style="font-size: 13px; margin-bottom: 12px; font-weight: bold; text-align: center;">
+                LOG DE DADOS COMPLETO (JSON):
+            </p>
+            <div id="bloco-json" style="background: #0b0b0b; padding: 15px; border-radius: 10px; overflow-x: auto; border: 1px solid #333;">
+                Carregando dados da sessão...
+            </div>
+        </div>
+
+        <button class="btn-proxima" onclick="recomecarQuiz()">Jogar Novamente </button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function renderizarDesempenhoFinal() {
+            //pegar informacoes
+            const nome = sessionStorage.getItem('nome_jogador') || "Anônimo";
+            const idade = sessionStorage.getItem('idade_jogador') || "---";
+            const time = sessionStorage.getItem('time_jogador') || "---";
+            const dadosAcumulados = sessionStorage.getItem('quiz_completo_json');
+            
+            //Mostrar Dado de Usuario na tela
+            document.getElementById('res-nome').innerText = nome.toUpperCase();
+            document.getElementById('res-idade').innerText = idade;
+            document.getElementById('res-time').innerText = time.toUpperCase();
+
+            if (dadosAcumulados) {
+                const jsonRespostas = JSON.parse(dadosAcumulados);
+                
+                let totalAcertos = 0;
+                let totalPerguntasRespondidas = Object.keys(jsonRespostas).length;
+
+                for (let chave in jsonRespostas) {
+                    if (jsonRespostas[chave].status === "Acertou") {
+                        totalAcertos++;
+                    }
+                }
+
+                let porcentagem = (totalAcertos / 20) * 100;
+
+                document.getElementById('res-acertos').innerText = totalAcertos;
+                document.getElementById('res-porcentagem').innerText = porcentagem.toFixed(0) + "%";
+
+             
+     //dESEMPENHO
+                const comentario = document.getElementById('status-comentario');
+                if (porcentagem >= 80) {
+                    comentario.innerHTML = " NÍVEL: <span style='color:#32cd32'>CRAQUE</span> ce e o bixao memo eim";
+                } else if (porcentagem >= 50) {
+                    comentario.innerHTML = " NÍVEL: <span style='color:yellow'>reserva de valor</span> so mi um pouco e titular pai";
+                } else {
+                    comentario.innerHTML = " NÍVEL: <span style='color:#b42424'>Desiste</span> As vezes vc e um bom confeiteiro";
+                }
+
+                document.getElementById('bloco-json').innerHTML = `<pre style="white-space: pre-wrap; margin: 0; color: #32cd32; font-family: monospace;">${JSON.stringify(jsonRespostas, null, 2)}</pre>`;
+            } else {
+                document.getElementById('bloco-json').innerHTML = "<p style='color: #fff; text-align: center; margin: 0;'>Nenhum dado encontrado.</p>";
+            }
+        }
+
+        renderizarDesempenhoFinal();
+
+        function recomecarQuiz() {
+            sessionStorage.clear();
+            window.location.href = "index.html";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+{
+  "perguntas": [
+    {
+      "id": "pergunta1",
+      "tela": 2,
+      "proximaTela": 3,
+      "enunciado": "1. Revelado pelo Santos, brilha no Real Madrid e usa a 11:",
+      "opcoes": [
+        {"texto": "A) Neymar", "correta": false},
+        {"texto": "B) Rodrygo", "correta": true},
+        {"texto": "C) Vini Jr", "correta": false},
+        {"texto": "D) Endrick", "correta": false}
+      ]
+    },
+    {
+      "id": "pergunta2",
+      "tela": 3,
+      "proximaTela": 4,
+      "enunciado": "2. O 'Bruxo' do futebol, campeão do mundo em 2002:",
+      "opcoes": [
+        {"texto": "A) Kaká", "correta": false},
+        {"texto": "B) Ronaldo", "correta": false},
+        {"texto": "C) Ronaldinho Gaúcho", "correta": true},
+        {"texto": "D) Rivaldo", "correta": false}
+      ]
+    },
+    {
+      "id": "pergunta3",
+      "tela": 4,
+      "proximaTela": 5,
+      "enunciado": "3. Tem 8 Bolas de Ouro e venceu a Copa de 2022:",
+      "opcoes": [
+        {"texto": "A) Lionel Messi", "correta": true},
+        {"texto": "B) Cristiano Ronaldo", "correta": false},
+        {"texto": "C) Mbappé", "correta": false},
+        {"texto": "D) Neymar", "correta": false}
+      ]
+    },
+    {
+      "id": "pergunta4",
+      "tela": 5,
+      "proximaTela": 6,
+      "enunciado": "4. O 'Robozão', maior artilheiro da história da Champions:",
+      "opcoes": [
+        {"texto": "A) Benzema", "correta": false},
+        {"texto": "B) Haaland", "correta": false},
+        {"texto": "C) Lewandowski", "correta": false},
+        {"texto": "D) Cristiano Ronaldo", "correta": true}
+      ]
+    },
+    {
+      "id": "pergunta5",
+      "tela": 6,
+      "proximaTela": 7,
+      "enunciado": "5. Atacante francês, atual camisa 9 do Real Madrid:",
+      "opcoes": [
+        {"texto": "A) Kylian Mbappé", "correta": true},
+        {"texto": "B) Griezmann", "correta": false},
+        {"texto": "C) Giroud", "correta": false},
+        {"tempo": "D) Dembélé", "correta": false}
+      ]
+    }
+  ]
+}

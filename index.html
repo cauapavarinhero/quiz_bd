@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quem é esse Jogador? - Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <div class="logo-principal" style="margin-bottom: 20px;">
+            <div class="bola-grande">⚽</div>
+            <div class="titulo-home">
+                <h1>QUIZ</h1>
+                <h2>LOGIN</h2>
+            </div>
+        </div>
+
+        <div class="card-pergunta" style="margin-bottom: 20px; padding: 20px 15px; display: flex; flex-direction: column; gap: 15px;">
+            
+            <div>
+                <label for="nome-usuario" style="display: block; margin-bottom: 8px; font-weight: bold; color: #32cd32; text-align: left; font-size: 14px;">
+                    NOME DO JOGADOR:
+                </label>
+                <input type="text" id="nome-usuario" placeholder="Ex: Neymar Jr" style="width: 100%; padding: 12px; border-radius: 8px; border: 2px solid #444; background: #0b0b0b; color: #fff; font-size: 16px; font-weight: bold; outline: none;">
+            </div>
+
+            <div>
+                <label for="idade-usuario" style="display: block; margin-bottom: 8px; font-weight: bold; color: #32cd32; text-align: left; font-size: 14px;">
+                    IDADE:
+                </label>
+                <input type="number" id="idade-usuario" placeholder="Ex: 18" min="1" max="120" style="width: 100%; padding: 12px; border-radius: 8px; border: 2px solid #444; background: #0b0b0b; color: #fff; font-size: 16px; font-weight: bold; outline: none;">
+            </div>
+
+            <div>
+                <label for="time-usuario" style="display: block; margin-bottom: 8px; font-weight: bold; color: #32cd32; text-align: left; font-size: 14px;">
+                    TIME DO CORAÇÃO:
+                </label>
+                <input type="text" id="time-usuario" placeholder="Ex: Santos" style="width: 100%; padding: 12px; border-radius: 8px; border: 2px solid #444; background: #0b0b0b; color: #fff; font-size: 16px; font-weight: bold; outline: none;">
+            </div>
+
+        </div>
+
+        <button class="btn-proxima" onclick="fazerLogin()">ENTRAR NO JOGO </button>
+    </div>
+
+    <script>
+        function fazerLogin() {
+            const nome = document.getElementById('nome-usuario').value.trim();
+            const idade = document.getElementById('idade-usuario').value.trim();
+            const time = document.getElementById('time-usuario').value.trim();
+            
+            // Validação simples para não deixar campos vazios
+            if (nome === "" || idade === "" || time === "") {
+                alert("preench as informacoes antes de jogar");
+                return;
+            }
+            
+            //Salva todas as informações separadamente na sessão
+            sessionStorage.setItem('nome_jogador', nome);
+            sessionStorage.setItem('idade_jogador', idade);
+            sessionStorage.setItem('time_jogador', time);
+            
+            // Redireciona para a tela de boas-vindas
+            window.location.href = 'home.html';
+        }
+    </script>
+</body>
+</html>
